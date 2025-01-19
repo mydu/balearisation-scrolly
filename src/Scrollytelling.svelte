@@ -1,6 +1,8 @@
 <script>
     import { onMount, onDestroy} from 'svelte';
-      
+    import * as d3 from 'd3';
+    import Chart from './Chart.svelte';
+
     const sections = [
         {
             title: "Data-Tendency No: 1",
@@ -34,7 +36,7 @@
     ];
   
     let currentSection = 0;
-  
+
   function setupIntersectionObserver() {
     const options = {
       root: null,
@@ -60,43 +62,56 @@
     let clientWidth;
     let clientHeight;
     
-    const showTooltip = (e,index) => {
-      console.log(e,index)
-      isTooltip=true;
-      tooltipX=e.clientX+200<clientWidth ? e.clientX+20: e.clientX-200; 
-      tooltipY= e.clientY+10<clientHeight ? e.clientY+10 : e.clientY-100;
-      activeTooltip = tooltips[index]
-    }
+    // const showTooltip = (e,index) => {
+    //   console.log(e,index)
+    //   isTooltip=true;
+    //   tooltipX=e.clientX+200<clientWidth ? e.clientX+20: e.clientX-200; 
+    //   tooltipY= e.clientY+10<clientHeight ? e.clientY+10 : e.clientY-100;
+    //   activeTooltip = tooltips[index]
+    // }
     const handleScroll = () => {
       isTooltip=false;
       activeTooltip = null;
     };
-    onMount(() => {
-      setupIntersectionObserver();
-      // window.addEventListener('scroll', handleScroll);
-    });
+    // onMount(() => {
+    //   setupIntersectionObserver();
+    //   // window.addEventListener('scroll', handleScroll);
+    // });
+    let lineData = [];
+
+onMount(async () => {
+  setupIntersectionObserver();
+    try {
+      const raw = await d3.csv('data/iph.csv', d3.autoType);
+      const parseDate = d3.timeParse("%m/%Y");
+      lineData = raw.filter(d => ('' + d.month).length !== 4).map(d => ({ ...d, date: parseDate(d.month) })).sort((a,b)=>a.date-b.date);
+    } catch (error) {
+        console.error('Error loading CSV file:', error);
+    }
+});
     // onDestroy(() => {
     //   window.removeEventListener('scroll', handleScroll);
     // });
   </script>
     <div class="relative w-full flex bg-[#ccc]">
         <!-- Sticky sidebar -->
-
         <div class="w-1/3">
             {#each sections as section, i}
             <div class=" z-10 pointer-events-none"> 
                 <div class="scroll-section min-h-screen flex items-center p-8" data-index={i}>
-                    <div class="relative w-full p-8  flex flex-col items-center justify-center gap-4">
-                        <h2>{section.title}</h2>
-                        <h1>{section.subtitle}</h1>
+                    <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+                        <h2 class="text-xl font-semibold">{section.title}</h2>
+                        <h1 class='text-2xl font-bold'>{section.subtitle}</h1>
                         <p>{@html section.content}</p>
                     </div>
                 </div>
             </div>
         {/each}
         </div>
-
         <div class="sticky top-0 right-0 h-screen w-2/3 flex items-center justify-center p-4 z-0 bg-black">
+          {#if currentSection==3 && lineData.length>0}
+            <Chart data={lineData} />
+          {/if}
         </div>
   </div>
   <svelte:window on:scroll={handleScroll} />
