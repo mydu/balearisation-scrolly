@@ -5,7 +5,7 @@
   
   <main class="w-full h-screen m-0 relative">
     <div class="h-screen">
-        <img class="w-full" src={intro} />
+        <!-- <img class="w-full" src={intro} /> -->
         <div class="mx-auto p-4 w-3/4">
 
             <h1 class="font-bold text-xl">Unveiling Reciprocal Interactions and Dependencies at the Crossroads of Mass Tourism and the Climate Crisis</h1>
