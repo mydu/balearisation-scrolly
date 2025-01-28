@@ -109,7 +109,7 @@ onMount(async () => {
             <div class=" z-10 pointer-events-none"> 
               <div class="scroll-section min-h-screen flex items-center p-8" data-index={0}>
                   <div class="relative w-full p-8  flex flex-col justify-center gap-4">
-                      <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_dense</h2>
+                      <h2 class="text-xl font-semibold text-[#0E23C1]"><span class="bg-white ">dataTendency_dense</span></h2>
                   </div>
               </div>
             </div>

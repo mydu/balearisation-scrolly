@@ -4,9 +4,9 @@
   </script>
   
   <main class="w-full h-screen m-0 relative" style="font-family: 'Montserrat', sans-serif;">
+    <img class="w-full" src={intro} />
     <div class="">
         <div class="mx-auto w-3/4 flex flex-col h-screen">
-            <img class="w-full" src={intro} />
             <div class="flex-grow flex items-center justify-center">
                 <div class="w-1/2">
 
