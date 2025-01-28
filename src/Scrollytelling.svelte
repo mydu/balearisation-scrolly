@@ -5,8 +5,7 @@
 
     const sections = [
         {
-            title: "Data-Tendency No: 1",
-            subtitle:"Dense",
+            title: "dataTendency_dense",
             content:"<p>The title 'Balearisation' reflects how humans, as a geophysical force, have reshaped Mallorca through mass tourism, transforming it into one of Europe’s densest and most environmentally strained areas. Coined to describe the unchecked expansion of tourism and its adverse consequences, the term has become a widely recognised reference, originating from Mallorca and now used to critique similar phenomena globally. This transformation becomes starkly evident when comparing population densities: Mainland Spain averages 94 people per square kilometre, while Mallorca’s density surges to around 700 during peak summer tourist season.This chapter traces the anthropogenic evolution of Mallorca, highlighting the density and interconnectedness of human impacts. In 63 seconds, it spans from 1842 to today, drawing on census data that grows more detailed over time—from sporadic early records to annual updates by the 21st century. Through sonification of census and visitor data, it captures key anthropogenic events, from the first telegraph route to the carbon footprint of reverse osmosis desalination systems, providing a concise foundation for understanding human influence on the island.</p>"
         },
         { 
@@ -93,10 +92,10 @@ onMount(async () => {
     //   window.removeEventListener('scroll', handleScroll);
     // });
   </script>
-    <div class="relative w-full flex bg-[#ccc]">
+    <div class="relative w-full flex bg-[#F5F5F5]">
         <!-- Sticky sidebar -->
         <div class="w-1/3">
-            {#each sections as section, i}
+          <!-- {#each sections as section, i}
             <div class=" z-10 pointer-events-none"> 
                 <div class="scroll-section min-h-screen flex items-center p-8" data-index={i}>
                     <div class="relative w-full p-8  flex flex-col justify-center gap-4">
@@ -106,14 +105,71 @@ onMount(async () => {
                     </div>
                 </div>
             </div>
-        {/each}
+          {/each} -->
+            <div class=" z-10 pointer-events-none"> 
+              <div class="scroll-section min-h-screen flex items-center p-8" data-index={0}>
+                  <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+                      <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_dense</h2>
+                  </div>
+              </div>
+            </div>
+            <div class=" z-10 pointer-events-none"> 
+            <div class="scroll-section min-h-screen flex items-center p-8" data-index={1}>
+                <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+                  <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_disproportional</h2>
+
+                </div>
+            </div>
+            </div>
+            <div class=" z-10 pointer-events-none"> 
+            <div class="scroll-section min-h-screen flex items-center p-8" data-index={2}>
+              <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+                <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_expoential</h2>
+
+              </div>
+            </div>
+            </div>
+            <div class=" z-10 pointer-events-none"> 
+            <div class="scroll-section min-h-screen flex items-center p-8" data-index={3}>
+            <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+              <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_undulating</h2>
+
+            </div>
+            </div>
+            </div>
+            <div class=" z-10 pointer-events-none"> 
+            <div class="scroll-section min-h-screen flex items-center p-8" data-index={4}>
+            <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+              <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_darkFigure</h2>
+
+            </div>
+            </div>
+            </div>
+            <div class=" z-10 pointer-events-none"> 
+              <div class="scroll-section min-h-screen flex items-center p-8" data-index={5}>
+                <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+                  <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_deficient</h2>
+
+                </div>
+              </div>
+            </div>
+            <div class=" z-10 pointer-events-none"> 
+              <div class="scroll-section min-h-screen flex items-center p-8" data-index={6}>
+                <div class="relative w-full p-8  flex flex-col justify-center gap-4">
+                  <h2 class="text-xl font-semibold bg-white text-[#0E23C1]">dataTendency_hot</h2>
+                </div>
+              </div>
+            </div>
+
         </div>
-        <div class="sticky top-0 right-0 h-screen w-2/3 flex items-center justify-center p-4 z-0 bg-black">
+        <div class="sticky top-0 right-0 h-screen w-2/3 flex items-center justify-center p-4 z-0 relative">
           {#if currentSection==3 && lineData.length>0}
-            <Chart data={lineData} />
+            <div class="bg-black w-full h-screen">
+              <Chart data={lineData} />
+            </div>
             {:else}
-            <div class="text-white">step {currentSection}</div>
-          {/if}
+            <div>step {currentSection}</div>
+          {/if} 
         </div>
   </div>
   <svelte:window on:scroll={handleScroll} />
