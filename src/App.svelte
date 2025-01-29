@@ -1,10 +1,9 @@
 <script>
     import Scrollytelling from './Scrollytelling.svelte';
-    import intro from './assets/intro.png'
   </script>
   
   <main class="w-full h-screen m-0 relative" style="font-family: 'Montserrat', sans-serif;">
-    <img class="w-full" src={intro} />
+    <img class="w-full" src="assets/intro.png" />
     <div class="">
         <div class="mx-auto w-3/4 flex flex-col h-screen">
             <div class="flex-grow flex items-center justify-center">
