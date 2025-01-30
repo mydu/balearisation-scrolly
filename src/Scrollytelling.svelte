@@ -2,6 +2,7 @@
     import { onMount, onDestroy} from 'svelte';
     import * as d3 from 'd3';
     import Chart from './Chart.svelte';
+    import ScrollFade from './ScrollFade.svelte';
 
     const steps = [
         {
@@ -334,40 +335,57 @@
     //   window.removeEventListener('scroll', handleScroll);
     // });
   </script>
-    <div class="relative w-full flex bg-[#EEF1F4]">
+    <div class="relative w-full lg:flex bg-[#EEF1F4]">
         <!-- Sticky sidebar -->
-        <div class="w-1/3">
+        <div class="w-full lg:w-1/3">
           {#each steps as section, i}
               <div class="scroll-section min-h-screen flex p-8 relative" bind:this={sections[i]} data-index={i}>
-                <img src="assets/map{i}.svg" class="w-[200px] absolute right-4 top-8">
                   <div class="relative w-full py-16 px-8 flex flex-col gap-8 justify-center">
+                    <div class="flex justify-between items-end">
                       <h2 class="text-xl font-semibold text-[#0E23C1]"><span class="bg-white px-2">{steps[i].title}</span></h2>
+                      <img src="assets/map{i}.svg" class="w-[200px]">
+
+                    </div>
                       {#each steps[i].subsections as subsection}
-                        <div class="flex gap-2 transition duration-300 {stepProgress[i]>subsection.delay ? 'opacity-100':'opacity-0'}">
+                      <ScrollFade>
+                        <div class="flex gap-2" style="color:{subsection.color}">
+
                           {#if subsection.subtitle!=='notification'}
                             <img class="w-4 h-4 mt-2" src={subsection.icon} />
                             <div>
-                                <h3 class="text-lg text-[#0E23C1]">{subsection.subtitle}</h3>
+                                <h3 class="text-lg font-semibold">{subsection.subtitle}</h3>
                                 {@html subsection.content}
                               </div>
-                          {:else}
-                            <div class="rounded-xl bg-white px-6 py-2">{subsection.content}</div>
+                          <!-- {:else}
+                            <div class="rounded-xl bg-white px-6 py-2">{subsection.content}</div> -->
                           {/if}
                         </div>
+                      </ScrollFade>
                       {/each}
+                      <ScrollFade>
+                        <div class="block lg:hidden">
+                          {#if i==3 && lineData.length>0}
+                            <div class="bg-black w-full h-[50vh] lg:h-screen">
+                              <Chart data={lineData} />
+                            </div>
+                            {:else}
+                            <div class="bg-black text-white w-full h-[50vh]"></div>
+                          {/if} 
+                        </div>
+                      </ScrollFade>
                   </div>
               </div>
-              <div class="h-[50vh]"></div>
+              <!-- <div class="h-[50vh]"></div> -->
           {/each}
 
         </div>
-        <div class="sticky top-0 right-0 h-screen w-2/3 flex items-center justify-center p-4 z-0 relative">
+        <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-4 z-0 relative">
           {#if currentSection==3 && lineData.length>0}
             <div class="bg-black w-full h-screen">
               <Chart data={lineData} />
             </div>
             {:else}
-            <div class="bg-black text-white w-full h-full">step {currentSection} -  {stepProgress[currentSection] * 100}</div>
+            <div class="bg-black text-white w-full h-full"></div>
           {/if} 
         </div>
   </div>

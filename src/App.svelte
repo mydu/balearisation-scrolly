@@ -5,9 +5,9 @@
   <main class="w-full h-screen m-0 relative" style="font-family: 'Montserrat', sans-serif;">
     <img class="w-full" src="assets/intro.png" />
     <div class="">
-        <div class="mx-auto w-3/4 flex flex-col h-screen">
-            <div class="flex-grow flex items-center justify-center">
-                <div class="w-1/2">
+        <div class="mx-auto flex flex-col h-screen">
+            <div class="flex-grow flex lg:items-center justify-center">
+                <div class="w-full p-8 lg:w-1/2">
 
                     <h1 class="font-bold text-xl text-[#0E23C1]">Unveiling Reciprocal Interactions and Dependencies at the Crossroads of Mass Tourism and the Climate Crisis</h1>
                     <p>
@@ -22,4 +22,12 @@
     </div>
     <!-- <div class="absolute inset-0 bg-gray-800 opacity-80"></div> -->
     <Scrollytelling />
+    <footer>
+      <div class="bg-[#EEF1F4] w-full py-24 flex justify-center items-center gap-16">
+          <a href="" target="_blank"><img class="h-20" src="assets/logo_casaplanas.png" /></a>
+          <a href="" target="_blank"><img class="h-20"  src="assets/Logo_COSTA_PositivoNegro_transp.png" /></a>
+          <a href="" target="_blank"><img class="h-16"  src="assets/gi_logo_horizontal_green-v2-scaled.jpg" /></a>
+             <a href="" target="_blank"><img class="h-16"   src="assets/header-logo-es.png" /></a>
+      </div>
+    </footer>
   </main>
