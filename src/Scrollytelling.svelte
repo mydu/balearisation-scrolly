@@ -15,19 +15,19 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content:'<p>The title "Balearisation" reflects how humans, as a geophysical force, have reshaped Mallorca through mass tourism, transforming it into one of Europe’s densest and most environmentally strained areas. Coined to describe the unchecked expansion of tourism and its adverse consequences, the term has become a widely recognised reference, originating from Mallorca and now used to critique similar phenomena globally. </p>'
+                content:'<p>The title "<strong>Balearisation</strong>" reflects how humans, as a geophysical force, have reshaped Mallorca through mass tourism, transforming it into one of Europe’s densest and most environmentally strained areas. Coined to describe the unchecked expansion of tourism and its adverse consequences, the term has become a widely recognised reference, originating from Mallorca and now used to critique similar phenomena globally. </p>'
               },
               {
                 subtitle:'_issue',delay:0.3,
                 color:"#B40A47",
                 icon: 'assets/title_issue.svg',
-                content:'<p>The title "Balearisation" reflects how humans, as a geophysical force, have reshaped Mallorca through mass tourism, transforming it into one of Europe’s densest and most environmentally strained areas. Coined to describe the unchecked expansion of tourism and its adverse consequences, the term has become a widely recognised reference, originating from Mallorca and now used to critique similar phenomena globally. </p>'
+                content:'<p>This transformation becomes starkly evident when comparing population densities: <strong>Mainland Spain averages 94 people per square kilometre, while Mallorca’s density surges to around 700 during peak summer tourist season.</strong></p>'
               },
               {
                 subtitle:'_sonification approach',delay:0.5,
                 color:"#000000",
                 icon: 'assets/title_sonification.svg',
-                content:'<p>This chapter traces the anthropogenic evolution of Mallorca, highlighting the density and interconnectedness of human impacts. In 63 seconds, it spans from 1842 to today, drawing on census data that grows more detailed over time—from sporadic early records to annual updates by the 21st century. Through sonification of census and visitor data, it captures key anthropogenic events, from the first telegraph route to the carbon footprint of reverse osmosis desalination systems, providing a concise foundation for understanding human influence on the island.</p>'
+                content:'<p>This chapter traces the anthropogenic evolution of Mallorca, highlighting the density and interconnectedness of human impacts. <strong>In 63 seconds, it spans from 1842 to today, drawing on census data that grows more detailed over time—from sporadic early records to annual updates by the 21st century.</strong> Through sonification of census and visitor data, it captures key anthropogenic events, from the first telegraph route to the carbon footprint of reverse osmosis desalination systems, providing a concise foundation for understanding human influence on the island.</p>'
               },
               {
                 subtitle:'notification',
@@ -44,19 +44,19 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content:'<p>This segment highlights the stark contrast between inland towns and coastal areas of Mallorca, shaped by the rapid expansion of tourism. </p>'
+                content:'<p>This segment highlights <strong>the stark contrast between inland towns and coastal areas of Mallorca, shaped by the rapid expansion of tourism.</strong></p>'
               },
               {
                 subtitle:'_issue',delay:0.3,
                 color:"#B40A47",
                 icon: 'assets/title_issue.svg',
-                content:'<p>Coastal municipalities like Palma, Calvià, and Alcúdía experienced significant population growth and urbanisation as they became hubs for tourism infrastructure. In contrast, inland towns, particularly in Es Pla and Escorca, faced population stagnation or decline as younger generations migrated to the coast for economic opportunities.</p>'
+                content:'<p>Coastal municipalities like <strong>Palma</strong>, <strong>Calvià</strong>, and <strong>Alcúdía</strong> experienced significant population growth and urbanisation as they became hubs for tourism infrastructure. In contrast, inland towns, particularly in <strong>Es Pla</strong> and <strong>Escorca</strong>, faced population stagnation or decline as younger generations migrated to the coast for economic opportunities.</p>'
               },
               {
                 subtitle:'_sonification approach',delay:0.5,
                 color:"#000000",
                 icon: 'assets/title_sonification.svg',
-                content:'<p>The audiovisual visualises this disparity through sonification of census and visitor data, revealing how the booming tourism industry disproportionately benefited coastal areas while leaving the interior underdeveloped. Coastal urbanisation often occurred at the expense of agricultural land, transforming Mallorca’s landscape and deepening socio-economic divides. Inland towns, once vital to Mallorca’s agricultural economy, have increasingly become marketed as tranquil retreats for affluent tourists, further exacerbating the disparity between the bustling coastline and quieter interior regions.</p>'
+                content:'<p>The audiovisual visualises this disparity through sonification of census and visitor data, revealing <strong>how the booming tourism industry disproportionately benefited coastal areas while leaving the interior underdeveloped.</strong> Coastal urbanisation often occurred at the expense of agricultural land, transforming Mallorca’s landscape and deepening socio-economic divides. Inland towns, once vital to Mallorca’s agricultural economy, have increasingly become marketed as tranquil retreats for affluent tourists, further exacerbating the disparity between the bustling coastline and quieter interior regions.</p>'
               },
               {
                 subtitle:'notification',
@@ -73,13 +73,13 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content: "<p>The 1950s marked a transformative tourism boom in Mallorca, driven by socio-economic recovery and technological advancements in post-war Europe. With rising disposable incomes and reduced working hours in countries like the UK and Germany, international travel became more accessible. Innovations in aviation, such as turbo-prop and jet engines, drastically cut travel times, and the relocation of commercial flights to Son Sant Joan in 1959 solidified Mallorca's status as a key destination.</p>"
+                content: "<p><strong>The 1950s marked a transformative tourism boom in Mallorca</strong>, driven by socio-economic recovery and technological advancements in post-war Europe. With rising disposable incomes and reduced working hours in countries like the UK and Germany, international travel became more accessible. Innovations in aviation, such as turbo-prop and jet engines, drastically cut travel times, and <strong>the relocation of commercial flights to Son Sant Joan in 1959 solidified Mallorca's status as a key destination.</strong></p>"
               },
               {
                 subtitle:'_issue',delay:0.3,
                 color:"#B40A47",
                 icon: 'assets/title_issue.svg',
-                content:'  <p>Despite the boom, inconsistent data recording during the 1950s, 1960s, and 1970s limited the ability to fully grasp the transformation’s impact. Critical areas like construction, tourism, and industrial development lacked cohesive documentation, making informed policy-making difficult.</p>'
+                content:'  <p>Despite the boom, inconsistent data recording during the 1950s, 1960s, and 1970s limited the ability to fully grasp the transformation’s impact. <strong>Critical areas like construction, tourism, and industrial development lacked cohesive documentation, making informed policy-making difficult.</strong></p>'
               },
               {
                 subtitle:'_insight',delay:0.4,
@@ -91,7 +91,7 @@
                 subtitle:'_sonification & visualisation approach',delay:0.5,
                 color:"#000000",
                 icon: 'assets/title_sonification.svg',
-                content:"<p>This segment employs sonification to represent Mallorca's accelerating tourism trajectory and its broader infrastructural development. The audiovisual draws on datasets covering the surface area of approved projects across residential, tourism, industrial, and recreational sectors from 1987 to 2024.</p><p>A monophonic oscillator represents the aggregated data for these sectors, with pitch increasing steadily over time to signify exponential growth. Accompanying visuals, derived from generative shaders and abstract imagery, contextualise these trends, linking historical development to auditory and visual elements.</p>"
+                content:"<p>This segment employs sonification to represent Mallorca's accelerating tourism trajectory and its broader infrastructural development. <strong>The audiovisual draws on datasets covering the surface area of approved projects across residential, tourism, industrial, and recreational sectors from 1987 to 2024.</strong></p><p>A monophonic oscillator represents the aggregated data for these sectors, with pitch increasing steadily over time to signify exponential growth. Accompanying visuals, derived from generative shaders and abstract imagery, contextualise these trends, linking historical development to auditory and visual elements.</p>"
               },
               {
                 subtitle:'notification',
@@ -108,13 +108,13 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content: " <p>The Human Pressure Indicator (HPI) was developed to provide a more accurate measurement of population load in the Balearic Islands, accounting for both residents and tourists. Traditional demographic data often focused solely on residents, but the HPI incorporates seasonal fluctuations and resource strain caused by tourism. This index, introduced by the Institut d'Estadística de les Illes Balears (IBESTAT), uses data from airports, ports, and municipal registers to track daily population figures.</p>"
+                content: " <p><strong>The Human Pressure Indicator (HPI) was developed to provide a more accurate measurement of population load in the Balearic Islands, accounting for both residents and tourists.</strong> Traditional demographic data often focused solely on residents, but the HPI incorporates seasonal fluctuations and resource strain caused by tourism. This index, introduced by the Institut d'Estadística de les Illes Balears (IBESTAT), uses data from airports, ports, and municipal registers to track daily population figures.</p>"
               },
               {
                 subtitle:'_issue',delay:0.3,
                 color:"#B40A47",
                 icon: 'assets/title_issue.svg',
-                content: "<p>The HPI reveals striking trends, such as seasonal surges during summer, when Mallorca’s population burden can exceed 1.47 million people on a single day (e.g., August 2022). These figures highlight the strain on local resources, infrastructure, and ecosystems, which require advanced planning and adaptive management.</p>"
+                content: "<p>The HPI reveals striking trends, such as seasonal surges during summer, when <strong>Mallorca’s population burden can exceed 1.47 million people on a single day</strong> (e.g., August 2022). These figures highlight the strain on local resources, infrastructure, and ecosystems, which require advanced planning and adaptive management.</p>"
               },
               {
                 subtitle:'_insight',delay:0.4,
@@ -143,13 +143,13 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content: "  <p>The prairies of Posidonia oceanica, often called the “lungs of the Mediterranean,” play a crucial ecological role in oxygen production, CO₂ sequestration, and coastal protection. However, they face growing threats from human activities, including desalination, coastal development, and rising sea temperatures, which jeopardise biodiversity and the health of marine ecosystems.</p>"
+                content: "  <p><strong>The prairies of Posidonia oceanica, often called the “lungs of the Mediterranean,” play a crucial ecological role in oxygen production, CO₂ sequestration, and coastal protection. However, they face growing threats from human activities, including desalination, coastal development, and rising sea temperatures, which jeopardise biodiversity and the health of marine ecosystems.</strong></p>"
               },
               {
                 subtitle:'_issue',delay:0.3,
                 color:"#B40A47",
                 icon: 'assets/title_issue.svg',
-                content: "<p>While research institutions such as IMEDEA provide valuable data on Posidonia meadows, the information often carries a “dark figure” — unaccounted or underreported data. Much of the available information relies on sporadic volunteer scuba divers’ observations and visual surveys, often recorded in static formats like JPEG images. These inconsistencies hinder a comprehensive understanding of the meadows' condition and their long-term trends.</p>"
+                content: "<p>While research institutions such as IMEDEA provide valuable data on Posidonia meadows, <strong>the information often carries a “dark figure” — unaccounted or underreported data.</strong> Much of the available information relies on sporadic volunteer scuba divers’ observations and visual surveys, often recorded in static formats like JPEG images. These inconsistencies hinder a comprehensive understanding of the meadows' condition and their long-term trends.</p>"
               },
               {
                 subtitle:'_insight',delay:0.4,
@@ -178,7 +178,7 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content: "  <p>Despite Mallorca’s abundant sunshine, its renewable energy investment has lagged behind, with renewable sources meeting only 25% of electricity demand during the summer months—far below mainland Spain. Historically, the island depended on imported coal and oil for energy, with seasonality and tourism driving sharp consumption increases. Between 1965 and 1988, electricity use rose dramatically from 496 KWh to 2,500 KWh. The introduction of a high-tension undersea cable in 2012 connected the island to the mainland’s national grid, alleviating some seasonal strain but deepening reliance on external resources.</p>"
+                content: "  <p>Despite Mallorca’s abundant sunshine, its renewable energy investment has lagged behind, <strong>with renewable sources meeting only 25% of electricity demand during the summer months—far below mainland Spain. Historically, the island depended on imported coal and oil for energy, with seasonality and tourism driving sharp consumption increases. Between 1965 and 1988, electricity use rose dramatically from 496 KWh to 2,500 KWh.</strong> The introduction of a high-tension undersea cable in 2012 connected the island to the mainland’s national grid, alleviating some seasonal strain but deepening reliance on external resources.</p>"
               },
               {
                 subtitle:'_issue',delay:0.3,
