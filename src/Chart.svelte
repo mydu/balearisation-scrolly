@@ -76,14 +76,21 @@
         {#if width>0}
             <g transform="translate({margin.left},{height - margin.bottom})">
                 {#each d3.range(1997,2025) as year}
-                    <text x={x(new Date(year+'-01-01'))}  fill="#fff">
-                        <tspan class="-rotate-45">{year}</tspan>
+                    <text 
+                        text-anchor="middle"
+                        font-size={12}
+                        transform={`rotate(-45, ${x(new Date(year+'-01-01'))}, 0)`}
+                        dominant-baseline="middle"
+                        y={0}
+                        x={x(new Date(year+'-01-01'))} 
+                        fill="#fff">
+                        {year}
                     </text>
                 {/each}
             </g>
             <g transform="translate({margin.left},0)" class="y-axis">
                 {#each d3.range(0,1300000,200000) as value}
-                    <text text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
+                    <text  font-size={12} text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
                 {/each}
             </g>
             <g transform="translate({margin.left},{margin.top})">

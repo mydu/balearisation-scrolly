@@ -9,7 +9,7 @@
     const steps = [
         {
             title: "dataTendency_dense",
-            video:"assets/superficie.mkv",
+           video:"",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -38,7 +38,7 @@
         },
         { 
             title: "dataTendency_disproportional",
-            video:"assets/deps.mp4",
+            video:"",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -67,7 +67,7 @@
           },
         { 
             title: "dataTendency_expoential",
-            video:"assets/superficie.mkv",
+            video:"",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -137,7 +137,7 @@
           },
         { 
             title: "dataTendency_darkFigure",
-            video:"assets/deps.mp4",
+            video:"",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -172,7 +172,7 @@
           },
         { 
             title: "dataTendency_deficient",
-            video:"assets/deps.mp4",
+            video:"",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -207,7 +207,7 @@
           },
         { 
             title: "dataTendency_hot",
-            video:"assets/deps.mp4",
+            video:"",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -303,6 +303,7 @@
 
     let lineData = [];
     let observer;
+
     onMount(async () => {
       // setupIntersectionObserver();
         try {
@@ -406,10 +407,10 @@
                               <div class="bg-black w-full h-[50vh] lg:h-screen">
                                 <Chart data={lineData} />
                               </div>
-                              <!-- {:else}
-                                <video class=" w-full h-[50vh]" controls bind:this={videoRefs[i]} >
-                                  <source src={steps[i].video} type="video/mp4" />
-                                </video> -->
+                              {:else}
+                                <video class=" w-full h-[50vh]" bind:this={videoRefs[i]} src={steps[i].video}>
+                                  <track kind="captions"/>
+                                </video>
                             {/if} 
                           </ScrollFade>
                       </div>
@@ -419,20 +420,18 @@
           {/each}
 
         </div>
-        <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-4 z-0 relative">
+        <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-8 z-0 relative">
           {#if currentSection==3 && lineData.length>0}
-            <div class="bg-black w-full h-screen">
-             
+            <div class="bg-black w-full h-full">
               <Chart data={lineData}/>
             </div>
             {:else}
             <div class="text-white w-full h-full  flex items-center">
-              <!-- <span>{steps[currentSection].video}</span>
               {#if steps[currentSection].video}
-                <video controls  class="w-full h-[500px]">
-                  <source src={steps[currentSection].video} type="video/mp4" />
+                <video class="w-full h-[500px]" src={steps[currentSection].video}>
+                  <track kind="captions"/>
                 </video>
-              {/if} -->
+              {/if}
             </div>
           {/if} 
         </div>
