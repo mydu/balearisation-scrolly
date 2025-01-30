@@ -23,11 +23,11 @@
     <!-- <div class="absolute inset-0 bg-gray-800 opacity-80"></div> -->
     <Scrollytelling />
     <footer>
-      <div class="bg-[#EEF1F4] w-full py-24 flex justify-center items-center gap-16">
-          <a href="" target="_blank"><img class="h-20" src="assets/logo_casaplanas.png" /></a>
-          <a href="" target="_blank"><img class="h-20"  src="assets/Logo_COSTA_PositivoNegro_transp.png" /></a>
-          <a href="" target="_blank"><img class="h-16"  src="assets/gi_logo_horizontal_green-v2-scaled.jpg" /></a>
-             <a href="" target="_blank"><img class="h-16"   src="assets/header-logo-es.png" /></a>
+      <div class="bg-[#EEF1F4] w-full py-24 flex flex-wrap justify-center items-center gap-16">
+        <a href="" target="_blank"><img class="h-20" src="assets/logo_casaplanas.png" /></a>
+        <a href="" target="_blank"><img class="h-20"  src="assets/Logo_COSTA_PositivoNegro_transp.png" /></a>
+        <a href="" target="_blank"><img class="h-16"  src="assets/gi_logo_horizontal_green-v2-scaled.jpg" /></a>
+        <a href="" target="_blank"><img class="h-16"   src="assets/header-logo-es.png" /></a>
       </div>
     </footer>
   </main>

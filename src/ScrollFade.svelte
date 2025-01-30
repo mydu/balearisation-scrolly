@@ -1,25 +1,34 @@
 <script>
-    import { onMount } from 'svelte';
-    
-    let element;
-    let visible = false;
+  import { onMount, createEventDispatcher } from 'svelte';
   
-    onMount(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            visible = entry.isIntersecting;
-          });
-        },
-        {
-          threshold: 0.5
-        }
-      );
+  const dispatch = createEventDispatcher();
   
-      observer.observe(element);
-  
-      return () => observer.disconnect();
-    });
+  let element;
+  let visible = false;
+  let hasBeenVisible = false;
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasBeenVisible) {
+            visible = true;
+            hasBeenVisible = true;
+            dispatch('visible', true);
+            // Once the element is visible, we can disconnect the observer
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.5
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  });
   </script>
   
   <div

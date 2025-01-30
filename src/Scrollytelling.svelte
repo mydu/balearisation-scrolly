@@ -3,10 +3,13 @@
     import * as d3 from 'd3';
     import Chart from './Chart.svelte';
     import ScrollFade from './ScrollFade.svelte';
+    import { tweened } from 'svelte/motion';
+    import { linear } from 'svelte/easing';
 
     const steps = [
         {
             title: "dataTendency_dense",
+            video:"assets/superficie.mkv",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -35,6 +38,7 @@
         },
         { 
             title: "dataTendency_disproportional",
+            video:"assets/deps.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -63,6 +67,7 @@
           },
         { 
             title: "dataTendency_expoential",
+            video:"assets/superficie.mkv",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -79,7 +84,7 @@
               {
                 subtitle:'_insight',delay:0.4,
                 color:"#12A331",
-                icon: 'assets/title_insight.svg',
+                icon: 'assets/title_insights.svg',
                 content:'<p>This gap was addressed by initiatives such as the Llibre Blanc del Turisme, led by IBESTAT and INESTUR, which centralised and standardised data collection. These efforts provided valuable insights into infrastructure development and the rapid growth of tourist arrivals.</p>'
               },
               {
@@ -97,6 +102,7 @@
           },
         { 
             title: "dataTendency_undulating",
+            video: null,
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -131,6 +137,7 @@
           },
         { 
             title: "dataTendency_darkFigure",
+            video:"assets/deps.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -165,6 +172,7 @@
           },
         { 
             title: "dataTendency_deficient",
+            video:"assets/deps.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -199,6 +207,7 @@
           },
         { 
             title: "dataTendency_hot",
+            video:"assets/deps.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -259,6 +268,9 @@
 
     let clientWidth;
     let clientHeight;
+    let videoRefs = [];
+    let desktopVideoRef;
+    let audioRef;
 
     function calculateScrollProgress(element) {
       const rect = element.getBoundingClientRect();
@@ -314,7 +326,7 @@
             },
             {
               root: null,
-              threshold: 0.5,
+              threshold: 0.7,
             }
           );
 
@@ -334,6 +346,28 @@
     // onDestroy(() => {
     //   window.removeEventListener('scroll', handleScroll);
     // });
+
+
+    // function handleVisible(index) {
+    //   console.log('play'+index)
+    //   if (index==3 && audioRef) {
+    //     audioRef.play()
+    //   }
+    //   else {
+    //     videoRefs[index].play();
+    //   }
+    // }
+
+    // function handleHidden(index) {
+    //   console.log('pause'+index)
+    //   if (index==3 && audioRef) {
+    //     audioRef.pause();
+    //   }
+    //   else {
+    //     videoRefs[index].pause();
+    //   }
+    // }
+  
   </script>
     <div class="relative w-full lg:flex bg-[#EEF1F4]">
         <!-- Sticky sidebar -->
@@ -347,32 +381,38 @@
 
                     </div>
                       {#each steps[i].subsections as subsection}
-                      <ScrollFade>
-                        <div class="flex gap-2" style="color:{subsection.color}">
-
-                          {#if subsection.subtitle!=='notification'}
-                            <img class="w-4 h-4 mt-2" src={subsection.icon} />
-                            <div>
-                                <h3 class="text-lg font-semibold">{subsection.subtitle}</h3>
-                                {@html subsection.content}
-                              </div>
-                          <!-- {:else}
-                            <div class="rounded-xl bg-white px-6 py-2">{subsection.content}</div> -->
-                          {/if}
-                        </div>
-                      </ScrollFade>
+                        <ScrollFade>
+                          <div class="flex gap-2" style="color:{subsection.color}">
+                            {#if subsection.subtitle!=='notification'}
+                              <img class="w-4 h-4 mt-2" src={subsection.icon} />
+                              <div>
+                                  <h3 class="text-lg font-semibold">{subsection.subtitle}</h3>
+                                  {@html subsection.content}
+                                </div>
+                            {/if}
+                          </div>
+                        </ScrollFade>
                       {/each}
-                      <ScrollFade>
-                        <div class="block lg:hidden">
-                          {#if i==3 && lineData.length>0}
-                            <div class="bg-black w-full h-[50vh] lg:h-screen">
-                              <Chart data={lineData} />
-                            </div>
-                            {:else}
-                            <div class="bg-black text-white w-full h-[50vh]"></div>
-                          {/if} 
-                        </div>
-                      </ScrollFade>
+                      <!-- <div class="hidden lg:block">
+                        <ScrollFade  
+                          on:visible={() => handleVisible(i)}
+                          on:hidden={() => handleHidden(i)}>
+                            <div class="opacity-0 h-12"></div>
+                        </ScrollFade>
+                      </div> -->
+                      <div class="block lg:hidden">
+                        <ScrollFade>
+                            {#if i==3 && lineData.length>0}
+                              <div class="bg-black w-full h-[50vh] lg:h-screen">
+                                <Chart data={lineData} />
+                              </div>
+                              <!-- {:else}
+                                <video class=" w-full h-[50vh]" controls bind:this={videoRefs[i]} >
+                                  <source src={steps[i].video} type="video/mp4" />
+                                </video> -->
+                            {/if} 
+                          </ScrollFade>
+                      </div>
                   </div>
               </div>
               <!-- <div class="h-[50vh]"></div> -->
@@ -382,10 +422,18 @@
         <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-4 z-0 relative">
           {#if currentSection==3 && lineData.length>0}
             <div class="bg-black w-full h-screen">
-              <Chart data={lineData} />
+             
+              <Chart data={lineData}/>
             </div>
             {:else}
-            <div class="bg-black text-white w-full h-full"></div>
+            <div class="text-white w-full h-full  flex items-center">
+              <!-- <span>{steps[currentSection].video}</span>
+              {#if steps[currentSection].video}
+                <video controls  class="w-full h-[500px]">
+                  <source src={steps[currentSection].video} type="video/mp4" />
+                </video>
+              {/if} -->
+            </div>
           {/if} 
         </div>
   </div>
