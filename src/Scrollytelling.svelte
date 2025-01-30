@@ -184,13 +184,13 @@
                 subtitle:'_issue',delay:0.3,
                 color:"#B40A47",
                 icon: 'assets/title_issue.svg',
-                content: "<p>Renewable energy adoption remains sluggish despite some progress in photovoltaic energy production. The renewable sector still accounts for only a fraction of Mallorca’s energy mix. Efforts to modernise the grid and incorporate sustainable sources have been made by institutions like the Institut Balear de l'Energia (IBE), but structural inefficiencies persist. This underscores the urgent need for policies that prioritise sustainable, self-sufficient energy solutions tailored to the island’s unique conditions.</p>"
+                content: "<p>Renewable energy adoption remains sluggish despite some progress in photovoltaic energy production. The renewable sector still accounts for only a fraction of Mallorca’s energy mix. <strong>Efforts to modernise the grid and incorporate sustainable sources have been made by institutions like the Institut Balear de l'Energia (IBE), but structural inefficiencies persist.</strong> This underscores the urgent need for policies that prioritise sustainable, self-sufficient energy solutions tailored to the island’s unique conditions.</p>"
               },
               {
                 subtitle:'_insight',delay:0.4,
                 color:"#12A331",
                 icon: 'assets/title_insights.svg',
-                content:'<p>The stark contrast between fossil fuel dependency and renewable energy adoption highlights systemic inefficiencies in the energy infrastructure. These disparities serve as a case study for other regions grappling with similar challenges, emphasising the importance of proactive investment in sustainability.</p>'
+                content:'<p>The stark contrast between fossil fuel dependency and renewable energy adoption highlights <strong>systemic inefficiencies in the energy infrastructure.</strong> These disparities serve as a case study for other regions grappling with similar challenges, emphasising the importance of proactive investment in sustainability.</p>'
               },
               {
                 subtitle:'_sonification & visualisation approach',delay:0.5,
@@ -213,7 +213,7 @@
                 subtitle:'_origin',delay:0.2,
                 color:"#0E23C1",
                 icon: 'assets/title_origin.svg',
-                content: "  <p>What we observe in the Balearic Islands, particularly in Mallorca, challenges the notion of economic growth driven by unlimited tourism. In a finite world, the pursuit of perpetual growth is unsustainable. If global consumption and emissions matched Mallorca’s levels, we’d likely face a worst-case scenario.</p>"
+                content: "<p>What we observe in the Balearic Islands, particularly in Mallorca, challenges the notion of economic growth driven by unlimited tourism. <strong>In a finite world, the pursuit of perpetual growth is unsustainable. If global consumption and emissions matched Mallorca’s levels, we’d likely face a worst-case scenario.</strong></p>"
               },
               {
                 subtitle:'_issue',delay:0.3,
