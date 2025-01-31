@@ -9,7 +9,7 @@
     const steps = [
         {
             title: "dataTendency_dense",
-           video:"",
+           video:"https://burakkorkmaz.de/content/files/01_Intro.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -38,7 +38,7 @@
         },
         { 
             title: "dataTendency_disproportional",
-            video:"",
+            video:"https://burakkorkmaz.de/content/files/02_Denso.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -137,7 +137,7 @@
           },
         { 
             title: "dataTendency_darkFigure",
-            video:"",
+            video:"https://burakkorkmaz.de/content/files/04_Posidonia.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -172,7 +172,7 @@
           },
         { 
             title: "dataTendency_deficient",
-            video:"",
+            video:"https://burakkorkmaz.de/content/files/05_Energia.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -207,7 +207,7 @@
           },
         { 
             title: "dataTendency_hot",
-            video:"",
+            video:"https://burakkorkmaz.de/content/files/06_Caluroso.mp4",
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -408,7 +408,7 @@
                                 <Chart data={lineData} />
                               </div>
                               {:else}
-                                <video class=" w-full h-[50vh]" bind:this={videoRefs[i]} src={steps[i].video}>
+                                <video controls class=" w-full h-[50vh]" bind:this={videoRefs[i]} src={steps[i].video}>
                                   <track kind="captions"/>
                                 </video>
                             {/if} 
@@ -428,7 +428,7 @@
             {:else}
             <div class="text-white w-full h-full  flex items-center">
               {#if steps[currentSection].video}
-                <video class="w-full h-[500px]" src={steps[currentSection].video}>
+                <video controls class="w-full" src={steps[currentSection].video}>
                   <track kind="captions"/>
                 </video>
               {/if}
