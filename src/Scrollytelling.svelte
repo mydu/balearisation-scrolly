@@ -408,7 +408,7 @@
                                 <Chart data={lineData} />
                               </div>
                               {:else}
-                                <video controls class=" w-full h-[50vh]" bind:this={videoRefs[i]} src={steps[i].video}>
+                                <video preload="auto" controls class=" w-full h-[50vh]" bind:this={videoRefs[i]} src={steps[i].video}>
                                   <track kind="captions"/>
                                 </video>
                             {/if} 
@@ -428,7 +428,7 @@
             {:else}
             <div class="text-white w-full h-full  flex items-center">
               {#if steps[currentSection].video}
-                <video controls class="w-full" src={steps[currentSection].video}>
+                <video preload="auto" controls class="w-full" src={steps[currentSection].video}>
                   <track kind="captions"/>
                 </video>
               {/if}
