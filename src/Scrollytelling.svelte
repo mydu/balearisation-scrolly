@@ -5,6 +5,7 @@
     import ScrollFade from './ScrollFade.svelte';
     import { tweened } from 'svelte/motion';
     import { linear } from 'svelte/easing';
+    import Video from './Video.svelte';
 
     const steps = [
         {
@@ -81,7 +82,7 @@
           },
         { 
             title: "dataTendency_exponential",
-            video:"",
+            video:"https://burakkorkmaz.de/content/files/03_Ocio_Construction.mp4",
             background:"#EEF1F4",
             mapInfo:  
               {
@@ -209,7 +210,7 @@
           },
         { 
             title: "dataTendency_deficient",
-            video:"https://burakkorkmaz.de/content/files/05_Energia.mp4",
+            video:"https://burakkorkmaz.de/content/files/05_Energia.mp4" ,
             background:"#E0E4E9",
             mapInfo:  
               {
@@ -298,8 +299,7 @@
 
     let sections =[];
     let currentSection = 0;
-    let stepProgress = new Array(steps.length).fill(0);
-    
+    // let stepProgress = new Array(steps.length).fill(0);
     // function setupIntersectionObserver() {
   //   const options = {
   //     root: null,
@@ -318,13 +318,6 @@
   //     observer.observe(section);
   //   });
   // }
-
-
-    let clientWidth;
-    let clientHeight;
-    let videoRefs = [];
-    let desktopVideoRef;
-    let audioRef;
 
     function calculateScrollProgress(element) {
       const rect = element.getBoundingClientRect();
@@ -348,15 +341,14 @@
         return Math.min(1, Math.max(0, progress));
       }
 
-    const handleScroll = () => {
-        sections.forEach((section, index) => {
-        stepProgress[index] = calculateScrollProgress(section);
-      });
-      stepProgress = [...stepProgress]; // Trigger reactivity
-    };
+    // const handleScroll = () => {
+    //   sections.forEach((section, index) => {
+    //     stepProgress[index] = calculateScrollProgress(section);
+    //   });
+    //   stepProgress = [...stepProgress]; // Trigger reactivity
+    // };
 
     let lineData = [];
-    let observer;
 
     onMount(async () => {
       // setupIntersectionObserver();
@@ -367,34 +359,40 @@
         } catch (error) {
             console.error('Error loading CSV file:', error);
         }
-
-        observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  const index = sections.indexOf(entry.target);
-                  if (index !== -1) {
-                    currentSection = index;
-                  }
+      const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const index = sections.indexOf(entry.target);
+              if (index !== -1) {
+                // Update currentStep only if the section is more than 25% visible
+                if (entry.intersectionRatio > 0.25) {
+                  currentSection = index;
                 }
-              });
-            },
-            {
-              root: null,
-              threshold: 0.7,
-            }
-          );
+              }
+              // if (entry.isIntersecting) {
+              //   const index = sections.indexOf(entry.target);
+              //   if (index !== -1) {
+              //     currentSection = index;
+              //   }
+              // }
+            });
+          },
+          {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+          }
+        );
 
-          sections.forEach((section) => {
+          document.querySelectorAll('.scroll-section').forEach(section => {
             observer.observe(section);
           });
 
-          // window.addEventListener('scroll', handleScroll);
-          handleScroll(); // Initial calculation
+          // handleScroll(); // Initial calculation
 
           return () => {
             observer.disconnect();
-            window.removeEventListener('scroll', handleScroll);
+            // window.removeEventListener('scroll', handleScroll);
           };
     
     });
@@ -468,17 +466,14 @@
                                 <Chart data={lineData} />
                               </div>
                               {:else}
-                                <video preload="auto" controls class=" w-full h-[50vh]" bind:this={videoRefs[i]} src={steps[i].video}>
-                                  <track kind="captions"/>
-                                </video>
+                                <Video index={i} videoSrc={steps[i].video} />
                             {/if} 
                           </ScrollFade>
                       </div>
                   </div>
               </div>
-              <div class="h-[50vh]" style="background:{section.background}"></div>
+              <!-- <div class="h-[50vh]" style="background:{section.background}"></div> -->
           {/each}
-
         </div>
         <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-8 z-0 relative">
           {#if currentSection==3 && lineData.length>0}
@@ -488,12 +483,13 @@
             {:else}
             <div class="text-white w-full h-full  flex items-center">
               {#if steps[currentSection].video}
-                <video preload="auto" controls class="w-full" src={steps[currentSection].video}>
+                <!-- <video preload="auto" controls class="w-full" src={steps[currentSection].video}>
                   <track kind="captions"/>
-                </video>
+                </video> -->
+                <Video index={currentSection} videoSrc={steps[currentSection].video} />
               {/if}
             </div>
           {/if} 
         </div>
   </div>
-  <svelte:window on:scroll={handleScroll} />
+  <!-- <svelte:window on:scroll={handleScroll} /> -->

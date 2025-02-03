@@ -26,6 +26,83 @@
     </div>
     <!-- <div class="absolute inset-0 bg-gray-800 opacity-80"></div> -->
     <Scrollytelling />
+    <div class="px-16 py-20 flex flex-col gap-8 bg-[#BFC1CF]">
+      <h3 class="font-bold text-[#0E23C1] text-2xl">Tourism in the Anthropocene and the Climate Crisis is realised at Casa Planas by Burak Korkmaz in the course of Goethe auf Mallorca 2024 residency by Goethe Institut Barcelona. </h3>
+      <div>
+        <p>DATA </p>
+         <p>_IBESTAT– Instituto de Estadística de las Islas Baleares.</p>
+
+          <p>_Llibre Blanc del Turisme de les Illes Balears (1987) & (2009).</p>
+
+          <p>_IPCC – Panel Intergubernamental sobre Cambio Climático.</p>
+
+          <p>_Eurostat – Oficina Europea de Estadística.</p>
+
+          <p>_INE – Instituto Nacional de Estadística.</p>
+
+          <p>_Aeropuerto de Palma de Mallorca (PMI) – Datos sobre pasajeros, bienes y huella de carbono.</p>
+
+          <p>_Grup Balear d'Ornitologia i Defensa de la Naturalesa (GOB) – Informes sobre conservación de playas y biodiversidad.</p>
+
+          <p>_Institut Mediterrani d'Estudis Avançats (IMEDEA-UIB) – Estudios sobre biodiversidad marina y Posidonia oceanica.</p>
+
+          <p>_Sistema Eléctrico Balear: Informe de Red Elèctrica de España (2022).</p>
+
+          <p>_Govern de les Illes Balears – Resum estadístic d'incendis forestals (2023).</p>
+
+          <p>_Human Pressure Indicator (HPI) of the Balearic Islands – Raquel Vaquer-Sunyer, Natalia Barrientos, Ivan Murray, Macià Blázquez (2020).</p>
+      </div>
+      <div>
+        <p>LITERATURE</p>
+        <p>_Análisis de la Tendencia y la Estacionalidad del Indicador de Presión Humana (IPH) en las Islas Baleares, Marcial Moya Roselló, 2023.</p>
+          <p>_Anthropocene Negative Universal, Harriet Johnson, Contemporary (date unspecified).</p>
+
+          <p>_Cultura Fósil: Imagen, Energía y Poder, Jaime Vindel, 2020.</p>
+
+          <p>_El Turisme a les Illes Balears Anuari 2023 Published in 2023.</p>
+
+          <p>_Human Pressure Indicator (HPI) of the Balearic Islands, Raquel Vaquer-Sunyer et al., 2020.</p>
+
+          <p>_Hiperobjetos, Timothy Morton, 2013.</p>
+
+          <p>_Impacto de la Salmuera de una Planta Desalinizadora en una Pradera Poco Profunda de Posidonia Oceanica, Esperança Gacia et al., 2007.</p>
+
+          <p>_La Salud Planetaria, Xiomara Cantera Arranz, Adrián Escudero, Fernando Valladares Ros, 2021.</p>
+
+          <p>_Limits to Growth, Club of Rome, 1972.</p>
+
+          <p>_Localització dels Espais Industrials a Mallorca, Caterina Cañellas Cifre, 2021.</p>
+
+          <p>_Los Inicios del Turismo en Mallorca. 1837-1914, Joan Carles Cirer-Costa, 2004.</p>
+
+          <p>_Mallorca and Tourism: History, Economy and Environment, R.J. Buswell, 2008.</p>
+
+          <p>_Origin and Abundance of Beach Debris in the Balearic Islands, Lorena Martinez-Ribes, Gotzon Basterretxea, Miquel Palmer, Joaquín Tintoré, 2007.</p>
+
+          <p>_Resum Estadístic d'Incendis Forestals 2023, Govern de les Illes Balears, 2023.</p>
+
+          <p>_Sistema Eléctrico Balear: Informe de Red Elèctrica de España, Red Eléctrica de España, 2022.</p>
+
+          <p>_Swimming Pool Evaporative Water Loss and Water Use in the Balearic Islands (Spain), Angela Hof et al., 2020.</p>
+
+          <p>_The Footprint of the Desalination Processes on the Environment, Rachel Einav et al., 2003.</p>
+
+          <p>_The Tourist: A New Theory of the Leisure Class, Dean MacCannell, 1976.</p>
+
+          <p>_Xarxa de Monitoratge de la Posidònia de les Illes Balears, Memòria Anual de 2022 y 2023.</p>
+      </div>
+      <div>
+        <p>_Research and Implementation: Burak Korkmaz</p>
+
+<p>_Guidance: Alelí Mirelman</p>
+
+<p>_Images courtesy of ©Planas Archive</p>
+
+<p>_Three.JS Terrain map by Mengying Du</p>
+
+<p>_Dystopic Post Card Collages by İpek Uğurlu</p>
+      </div>
+    </div>
     <footer>
       <div class="bg-[#EEF1F4] w-full py-24 flex flex-wrap justify-center items-center gap-16">
         <a href="" target="_blank"><img class="h-20" src="assets/logo_casaplanas.png" /></a>

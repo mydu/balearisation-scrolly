@@ -10,7 +10,7 @@
     let height;
     let audioRef;
 
-    const margin = { top: 100, right: 50, bottom: 50, left: 100 };
+    const margin = { top: 100, right: 50, bottom: 20, left: 100 };
 
     $: x = d3.scaleTime()
       .domain(d3.extent(data, d => d.date))
@@ -74,7 +74,7 @@
     </div>
     <svg {width} {height}>
         {#if width>0}
-            <g transform="translate({margin.left},{height - margin.bottom})">
+            <g transform="translate({margin.left},{height - margin.bottom-50})">
                 {#each d3.range(1997,2025) as year}
                     <text 
                         text-anchor="middle"
@@ -90,8 +90,14 @@
             </g>
             <g transform="translate({margin.left},0)" class="y-axis">
                 {#each d3.range(0,1300000,200000) as value}
-                    <text  font-size={12} text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
+                    <text font-size={12} text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
                 {/each}
+                <g  transform="translate(-30, 0)">
+
+                    <line x1={0} x2={0} y1={y(0)} y2={y(1300000)} stroke="#fff" />
+                    <line x1={0} x2={x(new Date('2025-01-01'))} y1={y(0)} y2={y(0)} stroke="#fff" />
+                </g>
+
             </g>
             <g transform="translate({margin.left},{margin.top})">
                 <path bind:this={pathRef}
