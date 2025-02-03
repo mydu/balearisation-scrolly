@@ -15,6 +15,10 @@
                     <p class="mt-8">
                         To foster a more data-driven, explanatory, and exploratory approach, this scrollytelling, as an output of ongoing and iterative research, segments the narrative into distinct sections. Each section integrates data sonification, soundscapes, generative imagery, and archival footage. Notably, all the data trends referenced are reflected through data sonification, while the accompanying visuals partially represent these data points. The visuals also offer a conceptual interpretation of the diffuse economy of tourism, incorporating abstract imagery, architectural generative approaches, and archival footage from the extensive archive of Casa Planas. This segmentation transforms the traditional linear video into an interactive and explorative experience.
                     </p>
+                    <h2 class="mt-4 text-xl text-[#0E23C1]">A project by <strong>Burak Korkmaz.</strong>
+                    </h2>
+                    <h2 class="text-xl text-[#0E23C1]">three.js visualisation and scrollytelling by <strong>Mengying Du.</strong>
+                    </h2>
                 </div>
                 <img class="w-20" src="assets/arrow.svg" />
               </div>

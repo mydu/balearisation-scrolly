@@ -9,7 +9,13 @@
     const steps = [
         {
             title: "dataTendency_dense",
-           video:"https://burakkorkmaz.de/content/files/01_Intro.mp4",
+            video:"https://burakkorkmaz.de/content/files/01_Intro.mp4",
+            background:"#EEF1F4",
+            mapInfo:   {
+              "location": "Mallorca (all municipalities)",
+              "yearRange": "1886-2023",
+              "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+            },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -24,7 +30,8 @@
                 content:'<p>This transformation becomes starkly evident when comparing population densities: <strong>Mainland Spain averages 94 people per square kilometre, while Mallorca’s density surges to around 700 during peak summer tourist season.</strong></p>'
               },
               {
-                subtitle:'_sonification approach',delay:0.5,
+                subtitle:'_sonification approach',
+                delay:0.5,
                 color:"#000000",
                 icon: 'assets/title_sonification.svg',
                 content:'<p>This chapter traces the anthropogenic evolution of Mallorca, highlighting the density and interconnectedness of human impacts. <strong>In 63 seconds, it spans from 1842 to today, drawing on census data that grows more detailed over time—from sporadic early records to annual updates by the 21st century.</strong> Through sonification of census and visitor data, it captures key anthropogenic events, from the first telegraph route to the carbon footprint of reverse osmosis desalination systems, providing a concise foundation for understanding human influence on the island.</p>'
@@ -39,6 +46,13 @@
         { 
             title: "dataTendency_disproportional",
             video:"https://burakkorkmaz.de/content/files/02_Denso.mp4",
+            background:"#E0E4E9",
+            mapInfo:  
+              {
+                "location": ["Palma", "Calvià", "Alcúdía", "Escorca"],
+                "yearRange": "1920-2024",
+                "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+              },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -66,8 +80,16 @@
             ]
           },
         { 
-            title: "dataTendency_expoential",
+            title: "dataTendency_exponential",
             video:"",
+            background:"#EEF1F4",
+            mapInfo:  
+              {
+              "location": "Mallorca (all municipalities)",
+              "yearRange": "1987-2024",
+              "frequency": "monthly",
+              "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+            },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -103,6 +125,14 @@
         { 
             title: "dataTendency_undulating",
             video: null,
+            background:"#E0E4E9",
+            mapInfo:  
+            {
+              "location": "Mallorca (all municipalities)",
+              "yearRange": "1997-2024",
+              "frequency": "monthly",
+              "source": ["https://ibestat.es/?lang=ca"]
+            },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -138,6 +168,13 @@
         { 
             title: "dataTendency_darkFigure",
             video:"https://burakkorkmaz.de/content/files/04_Posidonia.mp4",
+            background:"#EEF1F4",
+            mapInfo:  
+            {
+              "location": "Mallorca (all municipalities)",
+              "yearRange": "sporadic since 2008",
+              "source": ["https://imedea.uib-csic.es/en/"]
+            },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -173,6 +210,14 @@
         { 
             title: "dataTendency_deficient",
             video:"https://burakkorkmaz.de/content/files/05_Energia.mp4",
+            background:"#E0E4E9",
+            mapInfo:  
+              {
+                "location": "Mallorca (all municipalities)",
+                "yearRange": "since 2010",
+                "frequency": "monthly",
+                "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+              },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -208,6 +253,14 @@
         { 
             title: "dataTendency_hot",
             video:"https://burakkorkmaz.de/content/files/06_Caluroso.mp4",
+            background:"#EEF1F4",
+            mapInfo:
+              {
+                "location": "Mallorca (all municipalities)",
+                "yearRange": "since 1850",
+                "frequency": "annual",
+                "source": ["https://atlas.climate.copernicus.eu/atlas"]
+              },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -242,6 +295,7 @@
             ]
           },
     ];
+
     let sections =[];
     let currentSection = 0;
     let stepProgress = new Array(steps.length).fill(0);
@@ -370,18 +424,15 @@
     // }
   
   </script>
-    <div class="relative w-full lg:flex bg-[#EEF1F4]">
+    <div class="relative w-full lg:flex">
         <!-- Sticky sidebar -->
         <div class="w-full lg:w-1/3">
           {#each steps as section, i}
-              <div class="scroll-section min-h-screen flex p-8 relative" bind:this={sections[i]} data-index={i}>
+              <div class="scroll-section min-h-screen flex p-8 relative" style="background:{section.background}" bind:this={sections[i]} data-index={i}>
                   <div class="relative w-full py-16 px-8 flex flex-col gap-8 justify-center">
-                    <div class="flex justify-between items-end">
+                    <img src="assets/map{i}.svg" class="self-end w-[250px]" />
                       <h2 class="text-xl font-semibold text-[#0E23C1]"><span class="bg-white px-2">{steps[i].title}</span></h2>
-                      <img src="assets/map{i}.svg" class="w-[200px]">
-
-                    </div>
-                      {#each steps[i].subsections as subsection}
+                      {#each steps[i].subsections as subsection,subIndex}
                         <ScrollFade>
                           <div class="flex gap-2" style="color:{subsection.color}">
                             {#if subsection.subtitle!=='notification'}
@@ -389,7 +440,16 @@
                               <div>
                                   <h3 class="text-lg font-semibold">{subsection.subtitle}</h3>
                                   {@html subsection.content}
+                                  {#if subsection.subtitle.split(" ")[0]=='_sonification'}
+                                  <div class="mt-4 rounded-2xl bg-white px-2 py-4 flex items-start gap-2 text-[#545F71]">
+                                    <img src="assets/notification.svg" class="w-4 h-4" alt='notification'/>
+                                    <span class="text-xs">
+                                      {@html steps[i].subsections[subIndex+1].content}
+                                    </span>
+                                  </div>
+                                  {/if}
                                 </div>
+                               
                             {/if}
                           </div>
                         </ScrollFade>
@@ -416,7 +476,7 @@
                       </div>
                   </div>
               </div>
-              <!-- <div class="h-[50vh]"></div> -->
+              <div class="h-[50vh]" style="background:{section.background}"></div>
           {/each}
 
         </div>
