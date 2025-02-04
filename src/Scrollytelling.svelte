@@ -472,7 +472,7 @@
                       </div>
                   </div>
               </div>
-              <!-- <div class="h-[50vh]" style="background:{section.background}"></div> -->
+              <div class="h-[30vh]" style="background:{section.background}"></div>
           {/each}
         </div>
         <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-8 z-0 relative">
