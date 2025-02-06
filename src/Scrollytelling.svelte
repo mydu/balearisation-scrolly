@@ -477,7 +477,7 @@
         </div>
         <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-8 z-0 relative">
           {#if currentSection==3 && lineData.length>0}
-            <div class="bg-black w-full h-full">
+            <div class="p-20 bg-black w-full h-full">
               <Chart data={lineData}/>
             </div>
             {:else}

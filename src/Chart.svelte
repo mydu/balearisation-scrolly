@@ -93,7 +93,9 @@
                     <text font-size={12} text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
                 {/each}
                 <g  transform="translate(-30, 0)">
-
+                    <rect x={-5} y={y(0)-5} width={10} height={10} fill="#fff" />
+                    <rect  x={-5} y={y(1300000)-5} width={10} height={10} fill="#fff" />
+                    <rect  x={x(new Date('2025-01-01'))-5} y={y(0)-5} width={10} height={10} fill="#fff" />
                     <line x1={0} x2={0} y1={y(0)} y2={y(1300000)} stroke="#fff" />
                     <line x1={0} x2={x(new Date('2025-01-01'))} y1={y(0)} y2={y(0)} stroke="#fff" />
                 </g>
