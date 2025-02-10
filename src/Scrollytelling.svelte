@@ -15,7 +15,18 @@
             mapInfo:   {
               "location": "Mallorca (all municipalities)",
               "yearRange": "1886-2023",
-              "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+              "source": [
+               { 
+                url: "https://www.ine.es/",
+                title:"INE"
+
+               },
+               { 
+                url: "https://ibestat.es/?lang=ca",
+                title:"IBESTAT"
+               },
+                
+              ]
             },
             subsections: [
               {
@@ -52,7 +63,18 @@
               {
                 "location": ["Palma", "Calvià", "Alcúdía", "Escorca"],
                 "yearRange": "1920-2024",
-                "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+                "source": [
+               { 
+                url: "https://www.ine.es/",
+                title:"INE"
+
+               },
+               { 
+                url: "https://ibestat.es/?lang=ca",
+                title:"IBESTAT"
+               },
+                
+              ]
               },
             subsections: [
               {
@@ -87,9 +109,19 @@
             mapInfo:  
               {
               "location": "Mallorca (all municipalities)",
-              "yearRange": "1987-2024",
-              "frequency": "monthly",
-              "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
+              "yearRange": " 1987-2024, mensual",
+              "source": [
+               { 
+                url: "https://www.ine.es/",
+                title:"INE"
+
+               },
+               { 
+                url: "https://ibestat.es/?lang=ca",
+                title:"IBESTAT"
+               },
+                
+              ]
             },
             subsections: [
               {
@@ -130,10 +162,15 @@
             mapInfo:  
             {
               "location": "Mallorca (all municipalities)",
-              "yearRange": "1997-2024",
-              "frequency": "monthly",
-              "source": ["https://ibestat.es/?lang=ca"]
-            },
+              "yearRange": "1997-2024, mensual",
+              "source": [
+             
+               { 
+                url: "https://ibestat.es/?lang=ca",
+                title:"IBESTAT"
+               },
+                
+              ]            },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -174,7 +211,13 @@
             {
               "location": "Mallorca (all municipalities)",
               "yearRange": "sporadic since 2008",
-              "source": ["https://imedea.uib-csic.es/en/"]
+              "source": [
+               { 
+                url: "https://imedea.uib-csic.es/en/",
+                title:"IMEDEA"
+
+               }
+              ]
             },
             subsections: [
               {
@@ -215,10 +258,19 @@
             mapInfo:  
               {
                 "location": "Mallorca (all municipalities)",
-                "yearRange": "since 2010",
-                "frequency": "monthly",
-                "source": ["https://www.ine.es/", "https://ibestat.es/?lang=ca"]
-              },
+                "yearRange": "since 2010 (mensual)",
+                "source": [
+               { 
+                url: "https://www.ine.es/",
+                title:"INE"
+
+               },
+               { 
+                url: "https://ibestat.es/?lang=ca",
+                title:"IBESTAT"
+               },
+                
+              ]              },
             subsections: [
               {
                 subtitle:'_origin',delay:0.2,
@@ -258,9 +310,11 @@
             mapInfo:
               {
                 "location": "Mallorca (all municipalities)",
-                "yearRange": "since 1850",
-                "frequency": "annual",
-                "source": ["https://atlas.climate.copernicus.eu/atlas"]
+                "yearRange": "since 1850 (annual)",
+                "source": [{
+                  title:"IPCC",
+                  url:"https://atlas.climate.copernicus.eu/atlas"
+                }]
               },
             subsections: [
               {
@@ -428,8 +482,19 @@
           {#each steps as section, i}
               <div class="scroll-section min-h-screen flex p-8 relative" style="background:{section.background}" bind:this={sections[i]} data-index={i}>
                   <div class="relative w-full py-16 px-8 flex flex-col gap-8 justify-center">
-                    <img src="assets/map{i}.svg" class="self-end w-[250px]" />
-                      <h2 class="text-xl font-semibold text-[#0E23C1]"><span class="bg-white px-2">{steps[i].title}</span></h2>
+                    <div class="self-end text-xs">
+                      <img src="assets/map_{i}.svg" class="w-[250px]" />
+                      <p>LOCATION_<span class="text-[#0E23C1] mx-1">{section.mapInfo.location}</span></p>
+                      <p>YEAR_RANGE_<span class="text-[#0E23C1] mx-1">{section.mapInfo.yearRange}</span></p>
+                      <p>SOURCE_
+                        <span class="">
+                          {#each section.mapInfo.source as src,i}
+                            <a class="mx-1 text-[#0E23C1]" href={src.url}>{src.title}{i==0 && section.mapInfo.source.length>1 ?',':''}</a>
+                          {/each}
+                        </span>
+                      </p>
+                    </div>
+                    <h2 class="text-xl font-semibold text-[#0E23C1]"><span class="bg-white px-2">{steps[i].title}</span></h2>
                       {#each steps[i].subsections as subsection,subIndex}
                         <ScrollFade>
                           <div class="flex gap-2" style="color:{subsection.color}">
