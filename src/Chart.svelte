@@ -25,12 +25,7 @@
         .y(d => y(d.value))
         .curve(d3.curveCatmullRom);
 
-    onMount(() => {
-        console.log('show')
-    });
-    onDestroy(()=>{
-        console.log('hide')
-    })
+
     
     let pathRef;
     let pathLength;

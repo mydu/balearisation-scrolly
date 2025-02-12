@@ -11,6 +11,7 @@
         {
             title: "dataTendency_dense",
             video:"https://burakkorkmaz.de/content/files/01_Intro.mp4",
+            youtube:"https://www.youtube.com/embed/udCt5PE9g6k",
             background:"#EEF1F4",
             mapInfo:   {
               "location": "Mallorca (all municipalities)",
@@ -51,13 +52,14 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"Pushing play or scrolling will trigger the next audiovisual segment, immersing viewers in these dynamics."
+                content:"Simply pressing play will trigger the next audiovisual segment, immersing viewers in these dynamics."
               }
             ]
         },
         { 
             title: "dataTendency_disproportional",
             video:"https://burakkorkmaz.de/content/files/02_Denso.mp4",
+            youtube:"https://www.youtube.com/embed/v-Oabz0GyuE",
             background:"#E0E4E9",
             mapInfo:  
               {
@@ -98,13 +100,14 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"Pushing play or scrolling will trigger the next audiovisual segment, immersing viewers in these dynamics."
+                content:"Simply pressing play will trigger the next audiovisual segment, immersing viewers in these dynamics.."
               }
             ]
           },
         { 
             title: "dataTendency_exponential",
             video:"https://burakkorkmaz.de/content/files/03_Ocio_Construction.mp4",
+            youtube:"https://www.youtube.com/embed/jfvdsAhRpJ4",
             background:"#EEF1F4",
             mapInfo:  
               {
@@ -151,7 +154,7 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"By interacting with the media player, viewers can explore how growth across these sectors shaped Mallorca’s transformation during this pivotal era."
+                content:"By simply pressing play on the YouTube video, viewers can explore how growth across these sectors shaped Mallorca’s transformation during this pivotal era."
               }
             ]
           },
@@ -199,13 +202,14 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"Pushing play or scrolling will trigger the next data visualisation and sonification, including an interactive visualisation of the HPI."
+                content:"Pushing play will trigger the next data visualisation and sonification, including an interactive visualisation of the HPI."
               }
             ]
           },
         { 
             title: "dataTendency_darkFigure",
             video:"https://burakkorkmaz.de/content/files/04_Posidonia.mp4",
+            youtube:"https://www.youtube.com/embed/WkS4-OhSmzo",
             background:"#EEF1F4",
             mapInfo:  
             {
@@ -247,13 +251,14 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"Pushing play or scrolling will trigger the next audiovisual segment, allowing viewers to explore the dynamics of Posidonia oceanica through sonification and abstract visualisation."
+                content:"Simply pressing play on the YouTube video will trigger the next audiovisual segment, allowing viewers to explore the dynamics of Posidonia oceanica through sonification and abstract visualization."
               }
             ]
           },
         { 
             title: "dataTendency_deficient",
-            video:"https://burakkorkmaz.de/content/files/05_Energia.mp4" ,
+            video:"https://burakkorkmaz.de/content/files/05_Energia.mp4",
+            youtube:"https://www.youtube.com/embed/4xEh_SqwPO8",
             background:"#E0E4E9",
             mapInfo:  
               {
@@ -299,13 +304,14 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"The media player provides an interactive experience where users can isolate the data: fossil fuel consumption is represented in the left audio channel, while renewable energy data plays on the right. Combined playback delivers a complete auditory representation of the energy dynamics."
+                content:"The YouTube video offers an interactive experience: fossil fuel consumption is heard in the left audio channel, while renewable energy data plays on the right. Playing both together provides a full auditory representation of the energy dynamics."
               }
             ]
           },
         { 
             title: "dataTendency_hot",
             video:"https://burakkorkmaz.de/content/files/06_Caluroso.mp4",
+            youtube:"https://www.youtube.com/embed/JFzgK6Q6hAw",
             background:"#EEF1F4",
             mapInfo:
               {
@@ -345,7 +351,7 @@
               {
                 subtitle:'notification',
                 delay: 0.6,
-                content:"Pushing play or scrolling triggers the audiovisual segment, using data sonification and generative visuals to immerse viewers in these dynamics."
+                content:"Simply pressing play on the YouTube video triggers the audiovisual segment, using data sonification and generative visuals to immerse viewers in these dynamics."
               }
             ]
           },
@@ -416,12 +422,10 @@
       const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              const index = sections.indexOf(entry.target);
-              if (index !== -1) {
-                // Update currentStep only if the section is more than 25% visible
-                if (entry.intersectionRatio > 0.25) {
-                  currentSection = index;
-                }
+              if (entry.isIntersecting) {
+                // const index = sections.indexOf(entry.target);
+                const index = parseInt(entry.target.getAttribute('data-index') || '0');
+                currentSection = index;
               }
               // if (entry.isIntersecting) {
               //   const index = sections.indexOf(entry.target);
@@ -434,7 +438,7 @@
           {
             root: null,
             rootMargin: '0px',
-            threshold: 0.5,
+            threshold: 0.25,
           }
         );
 
@@ -450,6 +454,11 @@
           };
     
     });
+
+    let isLoading = true;
+    function handleIframeLoad() {
+      isLoading = false;
+    }
     // onDestroy(() => {
     //   window.removeEventListener('scroll', handleScroll);
     // });
@@ -531,30 +540,52 @@
                                 <Chart data={lineData} />
                               </div>
                               {:else}
-                                <Video index={i} videoSrc={steps[i].video} />
+                                <!-- <Video index={i} videoSrc={steps[i].video} /> -->
+                                {#if isLoading}
+                                  <div class="">
+                                    loading...
+                                  </div>
+                                {/if}
+                                <iframe class="w-full h-full min-h-[400px]"
+                                 src={steps[i].youtube} 
+                                 on:load={handleIframeLoad}
+                                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             {/if} 
                           </ScrollFade>
                       </div>
                   </div>
               </div>
-              <div class="h-[30vh]" style="background:{section.background}"></div>
+              <div class="hidden lg:block h-[30vh]" style="background:{section.background}"></div>
           {/each}
         </div>
         <div class="hidden lg:block sticky top-0 left:0 h-screen w-full lg:w-2/3 flex items-center justify-center p-8 z-0 relative">
-          {#if currentSection==3 && lineData.length>0}
-            <div class="p-20 bg-black w-full h-full">
-              <Chart data={lineData}/>
-            </div>
-            {:else}
-            <div class="text-white w-full h-full  flex items-center">
+          <div class="flex items-center justify-center w-full h-full">
+              {#if currentSection==3 && lineData.length>0}
+                <div class="bg-black w-full h-full max-h-[80vh]">
+                  <Chart data={lineData}/>
+                </div>
+                {:else}
               {#if steps[currentSection].video}
-                <!-- <video preload="auto" controls class="w-full" src={steps[currentSection].video}>
-                  <track kind="captions"/>
-                </video> -->
-                <Video index={currentSection} videoSrc={steps[currentSection].video} />
-              {/if}
+                <div class="text-white w-full h-0 overflow-hidden relative" style="padding-bottom:56.25%;">
+                  <!-- <video preload="auto" controls class="w-full" src={steps[currentSection].video}>
+                    <track kind="captions"/>
+                  </video> -->
+                  <!-- <Video index={currentSection} videoSrc={steps[currentSection].video} /> -->
+                  {#if isLoading}
+                    <div class="">
+                      loading...
+                    </div>
+                  {/if}
+                  <iframe 
+                    class="w-full h-full top-0 left-0 absolute"
+                     src={steps[currentSection].youtube}
+                     on:load={handleIframeLoad}
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                {/if}
+              {/if} 
             </div>
-          {/if} 
+      
         </div>
   </div>
   <!-- <svelte:window on:scroll={handleScroll} /> -->
