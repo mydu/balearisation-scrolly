@@ -59,52 +59,57 @@
     <source src="/HumanPressureIndex.wav"  type="audio/wav">
 </audio>
 
-<div class="w-full h-full" bind:clientHeight={height} bind:clientWidth={width}>
-    {#if audioRef && audioRef.paused}
-    <button class="absolute top-1/2 left-1/2 border border-white p-4 z-10 hover:bg-white hover:text-black text-white text-2xl" on:click={()=> audioRef.play()}>Play</button>
-  {/if}
-    <div class="text-white w-full absolute top-8 flex flex-col items-center">
+<div class="w-full h-full flex flex-col" >
+   
+    <div class="text-white w-full mt-8 flex flex-col items-center">
         <h3 class="text-2xl">Human Pressure Index in Mallorca</h3>
-        <p>HPI per surface area (people/km2)</p>
+        <p>HPI per surface area (people/km<sup>2</sup>)</p>
     </div>
-    <svg {width} {height}>
-        {#if width>0}
-            <g transform="translate({margin.left},{height - margin.bottom-50})">
-                {#each d3.range(1997,2025) as year}
-                    <text 
-                        text-anchor="middle"
-                        font-size={12}
-                        transform={`rotate(-45, ${x(new Date(year+'-01-01'))}, 0)`}
-                        dominant-baseline="middle"
-                        y={0}
-                        x={x(new Date(year+'-01-01'))} 
-                        fill="#fff">
-                        {year}
-                    </text>
-                {/each}
-            </g>
-            <g transform="translate({margin.left},0)" class="y-axis">
-                {#each d3.range(0,1300000,200000) as value}
-                    <text font-size={12} text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
-                {/each}
-                <g  transform="translate(-30, 0)">
-                    <rect x={-5} y={y(0)-5} width={10} height={10} fill="#fff" />
-                    <rect  x={-5} y={y(1300000)-5} width={10} height={10} fill="#fff" />
-                    <rect  x={x(new Date('2025-01-01'))-5} y={y(0)-5} width={10} height={10} fill="#fff" />
-                    <line x1={0} x2={0} y1={y(0)} y2={y(1300000)} stroke="#fff" />
-                    <line x1={0} x2={x(new Date('2025-01-01'))} y1={y(0)} y2={y(0)} stroke="#fff" />
-                </g>
-
-            </g>
-            <g transform="translate({margin.left},{margin.top})">
-                <path bind:this={pathRef}
-                    d={lineGenerator(data)} fill="none" stroke="#fff"
-                    stroke-dashoffset={pathLength - ($progress * pathLength)}
-                    stroke-dasharray={pathLength} />
-                <!-- {#each data as d,i}
-                        <circle cx={x(d.date)} cy={y(d.value)} r={5} fill='#fff' />
-                {/each} -->
-            </g>
+    <div class="flex-grow" bind:clientHeight={height} bind:clientWidth={width}>
+        {#if audioRef && audioRef.paused}
+            <button class="absolute top-1/2 left-1/2 border -translate-x-1/2 -translate-y-1/2 border-white p-4 z-10 hover:bg-white hover:text-black text-white text-2xl" on:click={()=> audioRef.play()}>Play</button>
         {/if}
-    </svg>
+        <svg {width} {height}>
+            {#if width>0}
+                <g transform="translate({margin.left},{height - margin.bottom-50})">
+                    {#each d3.range(1997,2025) as year}
+                        <text 
+                            class="text-[0.7em]"
+                            text-anchor="middle"
+                            transform={`rotate(-45, ${x(new Date(year+'-01-01'))}, 0)`}
+                            dominant-baseline="middle"
+                            y={0}
+                            x={x(new Date(year+'-01-01'))} 
+                            fill="#fff">
+                            {year}
+                        </text>
+                    {/each}
+                </g>
+                <g transform="translate({margin.left},0)" class="y-axis">
+                    {#each d3.range(0,1300000,200000) as value}
+                        <text                         
+                            class="text-[0.8em]"
+                         text-anchor="end" y={y(value)}  dx={-50} fill="#fff">{value==0 ? 0: d3.format(".2s")(value)}</text>
+                    {/each}
+                    <g  transform="translate(-30, 0)">
+                        <rect x={-5} y={y(0)-5} width={10} height={10} fill="#fff" />
+                        <rect  x={-5} y={y(1300000)-5} width={10} height={10} fill="#fff" />
+                        <rect  x={x(new Date('2025-01-01'))-5} y={y(0)-5} width={10} height={10} fill="#fff" />
+                        <line x1={0} x2={0} y1={y(0)} y2={y(1300000)} stroke="#fff" />
+                        <line x1={0} x2={x(new Date('2025-01-01'))} y1={y(0)} y2={y(0)} stroke="#fff" />
+                    </g>
+    
+                </g>
+                <g transform="translate({margin.left},{margin.top})">
+                    <path bind:this={pathRef}
+                        d={lineGenerator(data)} fill="none" stroke="#fff"
+                        stroke-dashoffset={pathLength - ($progress * pathLength)}
+                        stroke-dasharray={pathLength} />
+                    <!-- {#each data as d,i}
+                            <circle cx={x(d.date)} cy={y(d.value)} r={5} fill='#fff' />
+                    {/each} -->
+                </g>
+            {/if}
+        </svg>
+    </div>
 </div>
