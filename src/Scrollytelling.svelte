@@ -311,7 +311,7 @@
         { 
             title: "dataTendency_hot",
             video:"https://burakkorkmaz.de/content/files/06_Caluroso.mp4",
-            youtube:"https://www.youtube.com/embed/JFzgK6Q6hAw",
+            youtube:"https://www.youtube.com/embed/BQLTCrtvuus",
             background:"#EEF1F4",
             mapInfo:
               {
