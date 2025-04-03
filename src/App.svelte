@@ -67,8 +67,12 @@
     </div>
     <div class="">
         <div class="mx-auto flex flex-col h-screen">
-            <div class="flex-grow flex flex-col items-center justify-between py-40">
+            <div class="h-full flex flex-col items-center">
                 <div class="w-full p-8 lg:w-1/2">
+                    <div class="flex justify-around items-center">
+                        <img class="w-40" src="assets/IIB_Badge2024.png" />
+                        <img class="h-32" src="assets/Sonification_Awards2024.png" />
+                    </div>
                     <h1 class="font-bold text-xl text-[#0E23C1]">Unveiling Reciprocal Interactions and Dependencies at the Crossroads of Mass Tourism and the Climate Crisis</h1>
                     <p>
                         This audiovisual project is the result of in-depth research undertaken as part of the Goethe auf Mallorca artistic residency at Casa Planas in Palma de Mallorca, facilitated by the Goethe Institut Barcelona.
@@ -80,8 +84,9 @@
                     </h2>
                     <h2 class="text-xl text-[#0E23C1]">three.js visualisation and scrollytelling by <strong>Mengying Du.</strong>
                     </h2>
+                 
                 </div>
-                <img class="w-20" src="assets/arrow.svg" />
+                <img class="w-20 py-20" src="assets/arrow.svg" />
               </div>
         </div>
     </div>
