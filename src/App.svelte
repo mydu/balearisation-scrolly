@@ -69,8 +69,8 @@
         <div class="mx-auto flex flex-col h-screen">
             <div class="h-full flex flex-col items-center">
                 <div class="w-full p-8 lg:w-1/2">
-                    <div class="flex justify-around items-center">
-                        <img class="w-40" src="assets/IIB_Badge2024.png" />
+                    <div class="flex justify-around items-center mb-8">
+                        <img class="w-40" src="assets/iib_2024awads.png" />
                         <img class="h-32" src="assets/Sonification_Awards2024.png" />
                     </div>
                     <h1 class="font-bold text-xl text-[#0E23C1]">Unveiling Reciprocal Interactions and Dependencies at the Crossroads of Mass Tourism and the Climate Crisis</h1>
