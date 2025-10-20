@@ -80,7 +80,7 @@
                     <p class="mt-8">
                         To foster a more data-driven, explanatory, and exploratory approach, this scrollytelling, as an output of ongoing and iterative research, segments the narrative into distinct sections. Each section integrates data sonification, soundscapes, generative imagery, and archival footage. Notably, all the data trends referenced are reflected through data sonification, while the accompanying visuals partially represent these data points. The visuals also offer a conceptual interpretation of the diffuse economy of tourism, incorporating abstract imagery, architectural generative approaches, and archival footage from the extensive archive of Casa Planas. This segmentation transforms the traditional linear video into an interactive and explorative experience.
                     </p>
-                    <h2 class="mt-4 text-xl text-[#0E23C1]">A project by <strong>Burak Korkmaz.</strong>
+                    <h2 class="mt-4 text-xl text-[#0E23C1]">A project by <strong>Burak Korkmaz Schwichow.</strong>
                     </h2>
                     <h2 class="text-xl text-[#0E23C1]">three.js visualisation and scrollytelling by <strong>Mengying Du.</strong>
                     </h2>
@@ -93,7 +93,7 @@
     <!-- <div class="absolute inset-0 bg-gray-800 opacity-80"></div> -->
     <Scrollytelling />
     <div class="text-xs px-16 py-20 flex flex-col gap-8 bg-[#BFC1CF]">
-      <h3 class="font-bold text-[#0E23C1] text-2xl">Tourism in the Anthropocene and the Climate Crisis is realised at Casa Planas by Burak Korkmaz in the course of Goethe auf Mallorca 2024 residency by Goethe Institut Barcelona. </h3>
+      <h3 class="font-bold text-[#0E23C1] text-2xl">Tourism in the Anthropocene and the Climate Crisis is realised at Casa Planas by Burak Korkmaz Schwichow in the course of Goethe auf Mallorca 2024 residency by Goethe Institut Barcelona. </h3>
       <div>
         <p>DATA </p>
          <p>_IBESTAT– Instituto de Estadística de las Islas Baleares.</p>
@@ -158,7 +158,7 @@
           <p>_Xarxa de Monitoratge de la Posidònia de les Illes Balears, Memòria Anual de 2022 y 2023.</p>
       </div>
       <div>
-        <p>_Research and Implementation: Burak Korkmaz</p>
+        <p>_Research and Implementation: Burak Korkmaz Schwichow</p>
 
 <p>_Guidance: Alelí Mirelman</p>
 
